@@ -32,3 +32,5 @@ end
 legend('asthenosphere bearing','lithosphere bearing')
 axis equal
 axis off
+% axis([4.9 20 30 33.5])  %for cap 7
+% axis ([1.1 5.2 1 5.9])  %for cap 5
