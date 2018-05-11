@@ -1,9 +1,10 @@
 % 1) unzip the .gz file: gunzip -k velo.gz , which will produce output velo
 % 2) replace spaces with commas in velo: sed -i -e 's/ /,/g' velo
 % 3) run the readin file which creates separate x, y, z and T vectors
-clear m fname visc_capALL 
+
 %close all
 %clear all
+clear fname m i visc_capALL
 tic
 fname=dir('visc.*0');
 [m,~]=size(fname);
@@ -11,6 +12,9 @@ for i=1:m
 visc_capALL(:,i)= csvread(fname(i,1).name,2,0);
 
 end
+clear fname
+fname=dir('horiz_avg.*0');
+have_n30amb18=[csvread(fname(1,1).name,0,0); csvread(fname(2,1).name,1,0)];
 toc
 % % %tracer0=csvread('tracer.0.0');
 % fulltracer0= csvread(fname(1,1).name,2,0);
@@ -39,10 +43,11 @@ toc
 % fulltracer9= csvread(fname(24,1).name,2,0);
 
 %%
-clear visc_sm
+clear k j visc_sm vsic_avg_n
 for k=1:96
     for j=1:33
         visc_sm(j,k)=mean(visc_capALL(j:33:end,k));
     end
 end
-visc_avg_n19amb165=mean(visc_sm(:,2:2:end),2);
+visc_avg_n=mean(visc_sm(:,2:2:end),2);
+visc_avg_n30amb18=[ones(32,1); visc_avg_n];
