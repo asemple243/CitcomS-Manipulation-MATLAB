@@ -48,21 +48,6 @@ eff_n25amb18=mean(visc_avg_n25amb18(40:57));
 eff_n27amb18=mean(visc_avg_n27amb18(40:57)); 
 eff_n30amb18=mean(visc_avg_n30amb18(40:57)); 
 
-%%
-%Plot the avg Eff Visc vs. power law dependence
-
-figure
-plot([1.5 1.7 1.9 2.0 2.3 2.5 2.7 3.0],[eff_n15amb12 eff_n17amb12 eff_n19amb12 eff_n20amb12 eff_n23amb12 eff_n25amb12 eff_n27amb12 eff_n30amb12],'k')
-hold on
-plot([1.5 1.7 1.9 2.0 2.3 2.5 2.7 3.0],[eff_n15amb135 eff_n17amb135 eff_n19amb135 eff_n20amb135 eff_n23amb135 eff_n25amb135 eff_n27amb135 eff_n30amb135],'k')
-plot([1.5 1.7 1.9 2.0 2.3 2.5 2.7 3.0],[eff_n15amb15 eff_n17amb15 eff_n19amb15 eff_n20amb15 eff_n23amb15 eff_n25amb15 eff_n27amb15 eff_n30amb15],'k')
-plot([1.5 1.7 1.9 2.0 2.3 2.5],[eff_n15amb165 eff_n17amb165 eff_n19amb165 eff_n20amb165 eff_n23amb165 eff_n25amb165],'k')
-plot([1.5 1.7 1.9 2.0 2.3 2.5 2.7 3.0],[eff_n15amb18 eff_n17amb18 eff_n19amb18 eff_n20amb18 eff_n23amb18 eff_n25amb18 eff_n27amb18 eff_n30amb18],'k')
-legend('h_A=.075','h_A=.090','h_A=.105','h_A=.12','h_A=.135')
-xlabel('Power Law Dependence (n)')
-ylabel('Average Effective Viscosity')
-
-
 %% min eff visc of channel vs n by h_a plot  
 
 %get avg eff visc of channels
@@ -111,7 +96,7 @@ min_n30amb18=min(visc_avg_n30amb18(40:57));
 
 %% Plot Minimum viscosity vs. Power Law Dependence
 figure
-
+subplot(2,1,1)
 plot([1.5 1.7 1.9 2.0 2.3 2.5 2.7 3.0],[min_n15amb12 min_n17amb12 min_n19amb12 min_n20amb12 min_n23amb12 min_n25amb12 min_n27amb12 min_n30amb12],'k')
 hold on
 plot([1.5 1.7 1.9 2.0 2.3 2.5 2.7 3.0],[min_n15amb135 min_n17amb135 min_n19amb135 min_n20amb135 min_n23amb135 min_n25amb135 min_n27amb135 min_n30amb135],'k')
@@ -122,9 +107,24 @@ legend('h_A=.075','h_A=.090','h_A=.105','h_A=.12','h_A=.135')
 xlabel('Power Law Dependence (n)')
 ylabel('Minimum Effective Viscosity')
 
+subplot(2,1,2)
+%%
+%Plot the avg Eff Visc vs. power law dependence
+
+figure
+plot([1.5 1.7 1.9 2.0 2.3 2.5 2.7 3.0],[eff_n15amb12 eff_n17amb12 eff_n19amb12 eff_n20amb12 eff_n23amb12 eff_n25amb12 eff_n27amb12 eff_n30amb12],'k')
+hold on
+plot([1.5 1.7 1.9 2.0 2.3 2.5 2.7 3.0],[eff_n15amb135 eff_n17amb135 eff_n19amb135 eff_n20amb135 eff_n23amb135 eff_n25amb135 eff_n27amb135 eff_n30amb135],'k')
+plot([1.5 1.7 1.9 2.0 2.3 2.5 2.7 3.0],[eff_n15amb15 eff_n17amb15 eff_n19amb15 eff_n20amb15 eff_n23amb15 eff_n25amb15 eff_n27amb15 eff_n30amb15],'k')
+plot([1.5 1.7 1.9 2.0 2.3 2.5],[eff_n15amb165 eff_n17amb165 eff_n19amb165 eff_n20amb165 eff_n23amb165 eff_n25amb165],'k')
+plot([1.5 1.7 1.9 2.0 2.3 2.5 2.7 3.0],[eff_n15amb18 eff_n17amb18 eff_n19amb18 eff_n20amb18 eff_n23amb18 eff_n25amb18 eff_n27amb18 eff_n30amb18],'k')
+legend('h_A=.075','h_A=.090','h_A=.105','h_A=.12','h_A=.135')
+xlabel('Power Law Dependence (n)')
+ylabel('Average Effective Viscosity')
 
 
-%% average viscosity vs depth by n
+
+%% average velocity and viscosity vs depth by n
 figure
 subplot(1,5,1)
 plot(have_n15amb12(:,3),d,'k','linewidth',2)
